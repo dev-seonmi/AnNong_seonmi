@@ -30,6 +30,8 @@
         <activity android:name=".Activity_InputData"/>
         <activity android:name=".Activity_OutputData"/>
         <activity android:name=".Activity_AppSetting"/>
+
+        <activity android:name=".activity_select_crop_name"/>
     </application>
 
 </manifest>

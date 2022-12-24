@@ -16,5 +16,6 @@ public class Activity_InputData extends AppCompatActivity {
         setContentView(R.layout.activity_input_data);
 
 
+
     }
 }
