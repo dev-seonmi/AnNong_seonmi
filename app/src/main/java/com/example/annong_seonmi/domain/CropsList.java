@@ -1,0 +1,67 @@
+package com.example.annong_seonmi.domain;
+
+import android.content.Context;
+
+import com.example.annong_seonmi.utils.CsvUtils;
+import com.example.annong_seonmi.utils.enums.AppResourceName;
+import com.example.annong_seonmi.utils.enums.ApplicationConstants;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class CropsList {
+    private static CropsList instance = new CropsList();
+    private static final int NEW_CROP_SELECT_INDEX = 0;
+    private List<String> cropsList;
+    private Context context;
+
+    private CropsList(){
+    }
+
+    public static CropsList getInstance(){
+        return instance;
+    }
+
+    public CropsList initItems(Context context){
+        this.context = context;
+
+        initCropsList();
+        initFirstItem();
+        return this;
+    }
+
+    private void initCropsList(){
+        try{
+            this.cropsList = CsvUtils.getFullDataFromDir(context, AppResourceName.CROPS_LIST_FILE_NAME).get(0);
+        }catch (IndexOutOfBoundsException e){
+            this.cropsList = new ArrayList<>();
+        }
+    }
+
+    private void initFirstItem(){
+        cropsList.add(NEW_CROP_SELECT_INDEX, ApplicationConstants.MAKE_NEW_CROP_SELECT_MESSAGE.toString());
+    }
+
+    /**
+     * @return 작물 이름이 담긴 문자열 배열
+     */
+    public List<String> getCropsList(){
+        return this.cropsList;
+    }
+
+    /**
+     * 새로운 작물을 작물 목록에 추가,
+     * 기존의 작물과 이름이 중복될 경우 exception 발생
+     * @param cropsName 새로운 작물 이름
+     */
+    public void addNewCrops(String cropsName){
+        CsvUtils.writeCsvData(context, AppResourceName.CROPS_LIST_FILE_NAME, cropsName);
+        updateCropsList();
+    }
+
+    private void updateCropsList(){
+        this.cropsList = CsvUtils.getFullDataFromDir(context, AppResourceName.CROPS_LIST_FILE_NAME).get(0);
+        initFirstItem();
+    }
+}

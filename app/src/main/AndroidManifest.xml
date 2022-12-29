@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AnNong_seonmi"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,12 +26,12 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".Activity_TableSetting"/>
-        <activity android:name=".Activity_InputData"/>
-        <activity android:name=".Activity_OutputData"/>
-        <activity android:name=".Activity_AppSetting"/>
+        <activity android:name=".activity.Activity_TableSetting"/>
+        <activity android:name=".activity.Activity_InputData"/>
+        <activity android:name=".activity.Activity_OutputData"/>
+        <activity android:name=".activity.Activity_AppSetting"/>
 
-        <activity android:name=".activity_select_crop_name"/>
+        <activity android:name=".activity.activity_select_crop_name"/>
     </application>
 
 </manifest>
