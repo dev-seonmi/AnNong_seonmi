@@ -7,6 +7,7 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -35,7 +36,7 @@ public class Activity_InputData extends AppCompatActivity {
         setContentView(R.layout.activity_input_data);
 
         time_progress = (TextView) findViewById(R.id.time_progress);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         /* 중지버튼 -> 초기화 */
         time_progress.addTextChangedListener(new TextWatcher() {
@@ -56,9 +57,11 @@ public class Activity_InputData extends AppCompatActivity {
         });
 
 
-        /* 데이터 입력 시 add_table_data_row.xml 사용 */
+        /* 데이터가 들어오면 사용 */
         tableLayout = (TableLayout) findViewById(R.id.table_layout);
-        @SuppressLint("ResourceType") TableRow tableRow = (TableRow) findViewById(R.layout.add_table_data_row);
+        TableRow tableRow = (TableRow) LayoutInflater.from(this).inflate(R.layout.add_table_data_row, null);
+        ((TextView) tableRow.getChildAt(0)).setText("엽장 테스트 7");
+        ((TextView) tableRow.getChildAt(1)).setText("158.5");
         tableLayout.addView(tableRow);
     }
 }

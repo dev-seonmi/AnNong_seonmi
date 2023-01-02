@@ -6,7 +6,6 @@ import androidx.annotation.RequiresApi;
 
 import com.example.annong_seonmi.utils.enums.CustomDataType;
 
-
 public class CropRowMeta {
     private String columnName;
     private String dataType;

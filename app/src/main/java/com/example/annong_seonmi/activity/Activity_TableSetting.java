@@ -1,20 +1,27 @@
 package com.example.annong_seonmi.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.annong_seonmi.R;
+import com.example.annong_seonmi.domain.CropMeta;
+import com.example.annong_seonmi.domain.CropRowMeta;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Activity_TableSetting extends AppCompatActivity {
 
@@ -22,6 +29,7 @@ public class Activity_TableSetting extends AppCompatActivity {
     TableLayout table_layout;
     Button btn_add_row, btn_delete_row;
 
+    CropMeta cropMetaData;
     String crop_name;
 
     @Override
@@ -35,7 +43,7 @@ public class Activity_TableSetting extends AppCompatActivity {
         textView_crop_name = (TextView) findViewById(R.id.textView_crop_name);
         textView_crop_name.setText(crop_name);
 
-        check_table_data();
+        initCropMetaData(crop_name);
 
         table_layout = (TableLayout) findViewById(R.id.table_layout);
 
@@ -58,48 +66,21 @@ public class Activity_TableSetting extends AppCompatActivity {
         });
     }
 
-    /* 기존 테이블 설정 확인 -> 화면 구성 */
-    void check_table_data() {
-        int count = 0;
-        /*
-            파
-            일
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void initCropMetaData(String cropName){
+        textView_crop_name.setText(crop_name);
+        initCropRowMetaData(cropMetaData.getRows());
+    }
 
-            열
-            어
-            서
-
-            데
-            이
-            터
-            가
-
-            있
-            는
-            지
-
-            확
-            인
-            하
-            고
-
-            개
-            수
-            만
-            큼
-
-            for(int i=0; i<count; i++) {
-                TableRow tableRow = (TableRow) LayoutInflater.from(this).inflate(R.layout.table_setting_add_row, null);
-                ((TextView)tableRow.getChildAt(1)).setText("작물명"); // 작물명 입력
-                ((Spinner)tableRow.getChildAt(2)).setSelection(1); // 숫자 0, 텍스트 1
-                ((CheckBox)tableRow.getChildAt(3)).setChecked(true); // 필수이면 true, 아니면 false
-                table_layout.addView(tableRow);
-            }
-
-            반
-            복
-         */
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void initCropRowMetaData(List<CropRowMeta> cropRowMetaData){
+        for(CropRowMeta rowMeta: cropRowMetaData){
+            TableRow tableRow = (TableRow) LayoutInflater.from(this).inflate(R.layout.add_table_setting_row, null);
+            ((EditText) tableRow.getVirtualChildAt(1)).setText(rowMeta.getColumnName());
+            ((Spinner) tableRow.getVirtualChildAt(2)).setSelection(rowMeta.getDataTypeIndex());
+            ((CheckBox) tableRow.getVirtualChildAt(3)).setChecked(rowMeta.isRequired());
+            table_layout.addView(tableRow);
+        }
     }
 
     /* 테이블 행 추가 */

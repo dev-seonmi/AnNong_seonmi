@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="데이터 내보내기"
         android:textSize="50dp"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,6 +53,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="10dp">
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/left_arrow"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -75,9 +81,15 @@
             android:textSize="30dp"/>
 
         <Button
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/right_arrow"/>
+
+        <Button
             android:id="@+id/btn_delete_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="데이터 삭제"/>
     </LinearLayout>
 
@@ -112,37 +124,19 @@
             android:textAlignment="center"
             android:textStyle="bold"
             android:padding="5dp"/>
-
     </LinearLayout>
 
-
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <ScrollView
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:stretchColumns="*">
-            </TableLayout>
-        </ScrollView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|left"/>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|right"/>
-    </FrameLayout>
+            android:stretchColumns="*">
+        </TableLayout>
+    </ScrollView>
 
 
     <LinearLayout

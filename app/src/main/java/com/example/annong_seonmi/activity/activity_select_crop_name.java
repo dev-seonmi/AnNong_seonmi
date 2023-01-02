@@ -45,7 +45,7 @@ public class activity_select_crop_name extends AppCompatActivity {
         listView_crop_name = (ListView) findViewById(R.id.listView_crop_name);
         List<String> crop_name_list = new ArrayList<>();
 
-        cropItems = CropsList.getInstance().initItems(this);
+        cropItems = CropsList.getInstance().initItem(this);
         crop_name_list = cropItems.getCropsList();
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(activity_select_crop_name.this, R.layout.listview_style, crop_name_list);

@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_marginTop="20dp"
-        android:listSelector="#F299A9"/>
+        android:listSelector="@color/pink_light"/>
 
     <Button
         android:id="@+id/btn_add_new_crop"

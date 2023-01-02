@@ -12,10 +12,10 @@ import java.util.Collections;
 import java.util.List;
 
 
-
 public class CsvUtils {
     private static final String CSV_SPLIT_COMMA = ",";
 
+    /* 데이터 불러오기// 파일이름 ex) 딸기.csv */
     public static List<List<String>> getFullDataFromDir(Context context, AppResourceName appResourceName){
         BufferedReader csvBr = FileUtils.openInternalFileReader(context, appResourceName.getValue());
 
@@ -23,7 +23,7 @@ public class CsvUtils {
     }
 
     public static void writeCsvData(Context context, AppResourceName appResourceName, String data){
-        BufferedWriter csvWr = FileUtils.openInternalFileWriter(context, appResourceName.getValue());
+        BufferedWriter csvWr = FileUtils.openInternalFileWriter(context, appResourceName.getValue(), context.MODE_APPEND);
         try{
             csvWr.write(data+ CSV_SPLIT_COMMA);
             csvWr.flush();

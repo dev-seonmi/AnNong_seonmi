@@ -13,7 +13,7 @@ public class JsonUtils  {
     private static final String jsonFIleExtension = ".json";
 
     public static <T> void writeJsonData(Context context, String fileName, T instance){
-        BufferedWriter jsonBw = FileUtils.openInternalFileWriter(context, fileName+jsonFIleExtension);
+        BufferedWriter jsonBw = FileUtils.openInternalFileWriter(context, fileName+jsonFIleExtension, context.MODE_PRIVATE);
         try{
             jsonBw.write(gson.toJson(instance));
             jsonBw.flush();
@@ -21,12 +21,10 @@ public class JsonUtils  {
         }catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     public static <T> T getInstanceFromJson(Context context, String fileName, Class<T> parsingClass){
         BufferedReader jsonBr = FileUtils.openInternalFileReader(context, fileName+jsonFIleExtension);
-
         try{
             return gson.fromJson(jsonBr.readLine(), parsingClass);
         }catch (IOException e) {
