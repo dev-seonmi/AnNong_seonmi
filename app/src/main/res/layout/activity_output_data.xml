@@ -131,11 +131,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <TableLayout
+        <FrameLayout
+            android:id="@+id/output_data_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="*">
-        </TableLayout>
+            android:layout_height="match_parent"/>
     </ScrollView>
 
 

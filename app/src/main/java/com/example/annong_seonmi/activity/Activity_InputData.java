@@ -1,6 +1,7 @@
 package com.example.annong_seonmi.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,10 +24,11 @@ import com.example.annong_seonmi.R;
 
 public class Activity_InputData extends AppCompatActivity {
 
-    TextView time_progress;
+    TextView textView_crop_name, time_progress;
     ProgressBar progressBar;
     TableLayout tableLayout;
 
+    String crop_name;
     long baseTime, pauseTime, setTime;
 
     @SuppressLint("MissingInflatedId")
@@ -34,6 +36,12 @@ public class Activity_InputData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_data);
+
+        Intent intent = getIntent();
+        crop_name = intent.getStringExtra("crop_name");
+
+        textView_crop_name = (TextView) findViewById(R.id.textView_crop_name);
+        textView_crop_name.setText(crop_name);
 
         time_progress = (TextView) findViewById(R.id.time_progress);
 //        progressBar = (ProgressBar) findViewById(R.id.progressBar);

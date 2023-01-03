@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         btn_input_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Activity_InputData.class);
+                Intent intent = new Intent(MainActivity.this, activity_select_crop_name.class);
+                intent.putExtra("startPage", 2);
                 startActivity(intent);
             }
         });

@@ -56,7 +56,9 @@ public class activity_select_crop_name extends AppCompatActivity {
         btn_add_new_crop = (Button) findViewById(R.id.btn_add_new_crop);
         if (startPage == 1) {
             btn_add_new_crop.setVisibility(View.VISIBLE);
-        } else if (startPage == 3){
+        } else if (startPage == 2){
+            btn_add_new_crop.setVisibility(View.GONE);
+        }else if (startPage == 3){
             btn_add_new_crop.setVisibility(View.GONE);
         }
         btn_add_new_crop.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,8 @@ public class activity_select_crop_name extends AppCompatActivity {
                 if(startPage == 1) {
                     nextPage = Activity_TableSetting.class;
 
+                } else if(startPage == 2) {
+                    nextPage = Activity_InputData.class;
                 } else if(startPage == 3) {
                     nextPage = Activity_OutputData.class;
                 }

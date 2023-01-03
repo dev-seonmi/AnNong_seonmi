@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,7 @@ public class Activity_OutputData extends AppCompatActivity {
 
     TextView textView_crop_name;
     Button btn_delete_table, btn_delete_data;
+    FrameLayout output_data_frame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +52,13 @@ public class Activity_OutputData extends AppCompatActivity {
 
             }
         });
+
+        output_data_frame = (FrameLayout) findViewById(R.id.output_data_frame);
+//
+//        TableLayout tableLayout = new TableLayout(this);
+//        TableRow tableRow = (TableRow) findViewById(R.id.add_table_data_row);
+//        tableLayout.addView(tableRow);
+//        output_data_frame.addView(tableLayout);
     }
 
-    /* 작물 데이터 가져오기 */
-    void call_crop_data() {
-
-    }
 }

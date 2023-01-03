@@ -33,9 +33,9 @@ import java.util.List;
 
 public class Activity_AppSetting extends AppCompatActivity {
 
-    TextView textView_measure, textView_wait;
-    EditText editText_measure, editText_wait;
-    Button btn_measure, btn_wait, btn_back;
+    TextView textView_measure;
+    EditText editText_measure;
+    Button btn_measure, btn_back;
 
 
     String file_name, measure_time, wait_time;
@@ -62,23 +62,6 @@ public class Activity_AppSetting extends AppCompatActivity {
 
                 textView_measure.setText(measure_time);
                 editText_measure.setText("");
-
-                write_setting_time();
-            }
-        });
-
-        textView_wait = (TextView) findViewById(R.id.textView_wait);
-        editText_wait = (EditText) findViewById(R.id.editText_wait);
-        textView_wait.setText(wait_time);
-
-        btn_wait = (Button) findViewById(R.id.btn_wait);
-        btn_wait.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                wait_time = String.valueOf(editText_wait.getText());
-
-                textView_wait.setText(wait_time);
-                editText_wait.setText("");
 
                 write_setting_time();
             }
