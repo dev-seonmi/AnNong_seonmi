@@ -6,70 +6,76 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="20dp"
-    tools:context=".activity.MainActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.5"
-        android:src="@drawable/logo"
-        android:contentDescription="로고"/>
+    tools:context=".activity.MainActivity"
+    android:background="@color/white_melange">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="50dp">
+        android:layout_margin="50px">
 
-        <Button
-            android:id="@+id/btn_table_setting"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:src="@drawable/logo_removebg"
+            android:contentDescription="로고"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="입력 테이블 설정"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="50dp">
 
-        <Button
-            android:id="@+id/btn_input_data"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="작물 데이터 입력"/>
+            <Button
+                android:id="@+id/btn_table_setting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="입력 테이블 설정"/>
 
-        <Button
-            android:id="@+id/btn_output_data"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="데이터 내보내기"/>
+            <Button
+                android:id="@+id/btn_input_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="작물 데이터 입력"/>
 
-        <Button
-            android:id="@+id/btn_app_setting"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:text="앱 설정"/>
+            <Button
+                android:id="@+id/btn_output_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="데이터 내보내기"/>
+
+            <Button
+                android:id="@+id/btn_app_setting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="앱 설정"/>
+        </LinearLayout>
     </LinearLayout>
-
 
 
 </LinearLayout>

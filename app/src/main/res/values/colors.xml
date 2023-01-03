@@ -8,17 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
     <!-- AnNong_seonmi Logo Color -->
     <color name="pink_light"> #F299A9</color>
-    <color name="pink_deep">#D9414E</color>
-
+    <color name="pink_deep">#E75760</color>
     <color name="green_light">#6C8C3B</color>
     <color name="green_deep">#677310</color>
-
     <color name="white_melange">#F2F2F2</color>
-
     <color name="yellow_soft">#F2B263</color>
-
     <color name="dahong_soft1">#F9AA91</color>
     <color name="dahong_soft2">#F9835A</color>
 

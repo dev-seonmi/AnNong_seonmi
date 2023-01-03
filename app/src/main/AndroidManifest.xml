@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_icon_removebg"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_icon_removebg"
         android:supportsRtl="true"
         android:theme="@style/Theme.AnNong_seonmi"
         tools:targetApi="31">
@@ -26,10 +26,14 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".activity.Activity_TableSetting"/>
-        <activity android:name=".activity.Activity_InputData"/>
-        <activity android:name=".activity.Activity_OutputData"/>
-        <activity android:name=".activity.Activity_AppSetting"/>
+        <activity android:name=".activity.Activity_TableSetting"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.Activity_InputData"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.Activity_OutputData"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".activity.Activity_AppSetting"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity android:name=".activity.activity_select_crop_name"/>
     </application>

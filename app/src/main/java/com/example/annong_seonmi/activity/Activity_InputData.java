@@ -67,9 +67,13 @@ public class Activity_InputData extends AppCompatActivity {
 
         /* 데이터가 들어오면 사용 */
         tableLayout = (TableLayout) findViewById(R.id.table_layout);
-        TableRow tableRow = (TableRow) LayoutInflater.from(this).inflate(R.layout.add_table_data_row, null);
-        ((TextView) tableRow.getChildAt(0)).setText("엽장 테스트 7");
-        ((TextView) tableRow.getChildAt(1)).setText("158.5");
-        tableLayout.addView(tableRow);
+
+        for(int i=0; i<10; i++) {
+            TableRow tableRow = (TableRow) LayoutInflater.from(this).inflate(R.layout.add_table_data_row_edit, null);
+            ((TextView) tableRow.getChildAt(0)).setText("엽장 테스트 7");
+            ((TextView) tableRow.getChildAt(1)).setText("158.5");
+            tableLayout.addView(tableRow);
+        }
+
     }
 }

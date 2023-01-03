@@ -6,11 +6,11 @@
             <size
                 android:width="50dp"
                 android:height="50dp"/>
-            <solid
-                android:color="@color/color5"/>
             <stroke
                 android:width="3dp"
-                android:color="@color/green_deep"/>
+                android:color="#9AA6D6"/>
+            <solid
+                android:color="@color/spindle"/>
             <corners
                 android:radius="10dp"/>
             <padding
@@ -26,11 +26,11 @@
             <size
                 android:width="50dp"
                 android:height="50dp"/>
-            <solid
-                android:color="@color/green_deep"/>
             <stroke
                 android:width="3dp"
-                android:color="@color/green_deep"/>
+                android:color="#9AA6D6"/>
+            <solid
+                android:color="#9AA6D6"/>
             <corners
                 android:radius="10dp"/>
             <padding

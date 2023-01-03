@@ -43,7 +43,7 @@ public class Activity_TableSetting extends AppCompatActivity {
         textView_crop_name = (TextView) findViewById(R.id.textView_crop_name);
         textView_crop_name.setText(crop_name);
 
-        initCropMetaData(crop_name);
+//        initCropMetaData(crop_name);
 
         table_layout = (TableLayout) findViewById(R.id.table_layout);
 
