@@ -109,7 +109,7 @@
         </LinearLayout>
 
         <TableLayout
-            android:id="@+id/table_layout"
+            android:id="@+id/setting_table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

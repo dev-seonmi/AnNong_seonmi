@@ -2,7 +2,7 @@ package com.example.annong_seonmi.utils.enums;
 
 public enum AppResourceName {
 
-    CROPS_LIST_FILE_NAME("cropsList.csv");
+    CROPS_LIST_FILE_NAME("cropsList");
 
     private final String resourceName;
 

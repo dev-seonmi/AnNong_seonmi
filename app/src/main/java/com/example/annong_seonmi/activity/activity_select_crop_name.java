@@ -19,6 +19,7 @@ import com.example.annong_seonmi.R;
 import com.example.annong_seonmi.domain.CropMeta;
 import com.example.annong_seonmi.domain.CropsList;
 import com.example.annong_seonmi.utils.JsonUtils;
+import com.example.annong_seonmi.utils.enums.Extras;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,16 +68,18 @@ public class activity_select_crop_name extends AppCompatActivity {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(activity_select_crop_name.this);
                 EditText editText = new EditText(dialog.getContext());
                 dialog.setView(editText);
-                String new_crop_name = editText.getText().toString();
                 dialog.setTitle("작물 추가");
                 dialog.setMessage("추가하실 작물명을 이름을 입력하세요");
                 dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        String new_crop_name = editText.getText().toString();
                         if(!new_crop_name.equals("")) {
                             addNewCropItem(new_crop_name);
                             initNewCropMeta(new_crop_name);
-                            ((Activity)getApplicationContext()).finish();
+
+                            goNextPage(new_crop_name);
+//                            ((Activity)getApplicationContext()).finish();
                         }
                     }
                 });
@@ -96,20 +99,7 @@ public class activity_select_crop_name extends AppCompatActivity {
                 crop_name = adapterView.getItemAtPosition(i).toString();
                 Log.e("TAG", "작물명>> " +crop_name);
 
-                Class nextPage = null;
-                if(startPage == 1) {
-                    nextPage = Activity_TableSetting.class;
-
-                } else if(startPage == 2) {
-                    nextPage = Activity_InputData.class;
-                } else if(startPage == 3) {
-                    nextPage = Activity_OutputData.class;
-                }
-
-                Intent intent = new Intent(activity_select_crop_name.this, nextPage);
-                intent.putExtra("crop_name", crop_name);
-                startActivity(intent);
-                finish();
+                goNextPage(crop_name);
             }
         });
 
@@ -121,5 +111,26 @@ public class activity_select_crop_name extends AppCompatActivity {
 
     private void initNewCropMeta(String newCropName){
         JsonUtils.writeJsonData(this, newCropName, new CropMeta(newCropName));
+    }
+
+    private void goNextPage(String crop_name) {
+        this.crop_name = crop_name;
+        Log.e("TAG", "goNextPage");
+
+        Class nextPage = null;
+        if(startPage == 1) {
+            nextPage = Activity_TableSetting.class;
+        } else if(startPage == 2) {
+            nextPage = Activity_InputData.class;
+        } else if(startPage == 3) {
+            nextPage = Activity_OutputData.class;
+        }
+
+        Intent intent = new Intent(activity_select_crop_name.this, nextPage);
+        intent.putExtra("crop_name", crop_name);
+        intent.putExtra(Extras.CROP_NAME_KEY.getKey(), crop_name);
+        startActivity(intent);
+        finish();
+
     }
 }
