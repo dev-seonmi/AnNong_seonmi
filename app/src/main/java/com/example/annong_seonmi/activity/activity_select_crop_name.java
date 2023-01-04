@@ -1,6 +1,7 @@
 package com.example.annong_seonmi.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,27 +67,37 @@ public class activity_select_crop_name extends AppCompatActivity {
         btn_add_new_crop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(activity_select_crop_name.this);
-                EditText editText = new EditText(dialog.getContext());
-                dialog.setView(editText);
-                dialog.setTitle("작물 추가");
-                dialog.setMessage("추가하실 작물명을 이름을 입력하세요");
-                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                Dialog dialog = new Dialog(activity_select_crop_name.this);
+                dialog.setContentView(R.layout.dialog_view);
+
+                TextView dialog_title = (TextView) dialog.findViewById(R.id.dialog_title);
+                TextView dialog_msg = (TextView) dialog.findViewById(R.id.dialog_msg);
+                EditText dialog_text = (EditText) dialog.findViewById(R.id.dialog_text);
+                Button dialog_btn_no = (Button) dialog.findViewById(R.id.dialog_btn_no);
+                Button dialog_btn_ok = (Button) dialog.findViewById(R.id.dialog_btn_ok);
+
+                dialog_title.setText("작물 추가");
+                dialog_msg.setText("추가하실 작물명을 입력하세요");
+                dialog_text.setText("");
+
+                dialog_btn_no.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        String new_crop_name = editText.getText().toString();
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog_btn_ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String new_crop_name = dialog_text.getText().toString();
                         if(!new_crop_name.equals("")) {
                             addNewCropItem(new_crop_name);
                             initNewCropMeta(new_crop_name);
 
                             goNextPage(new_crop_name);
-//                            ((Activity)getApplicationContext()).finish();
                         }
                     }
-                });
-                dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {}
                 });
 
                 dialog.show();

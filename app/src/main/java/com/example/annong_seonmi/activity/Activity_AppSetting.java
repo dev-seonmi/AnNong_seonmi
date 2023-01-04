@@ -37,7 +37,6 @@ public class Activity_AppSetting extends AppCompatActivity {
     EditText editText_measure;
     Button btn_measure, btn_back;
 
-
     String file_name, measure_time, wait_time;
 
     @Override

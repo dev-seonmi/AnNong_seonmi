@@ -1,5 +1,6 @@
 package com.example.annong_seonmi.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -77,8 +78,35 @@ public class Activity_TableSetting extends AppCompatActivity {
         btn_save_table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveTable();
-                finish();
+                Dialog dialog = new Dialog(Activity_TableSetting.this);
+                dialog.setContentView(R.layout.dialog_view);
+
+                TextView dialog_title = (TextView) dialog.findViewById(R.id.dialog_title);
+                TextView dialog_msg = (TextView) dialog.findViewById(R.id.dialog_msg);
+                EditText dialog_text = (EditText) dialog.findViewById(R.id.dialog_text);
+                Button dialog_btn_no = (Button) dialog.findViewById(R.id.dialog_btn_no);
+                Button dialog_btn_ok = (Button) dialog.findViewById(R.id.dialog_btn_ok);
+
+                dialog_title.setText("저장");
+                dialog_msg.setText("메세지 입력 알아서 하기");
+                dialog_text.setVisibility(View.GONE);
+
+                dialog_btn_no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog_btn_ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        saveTable();
+                        finish();
+                    }
+                });
+
+                dialog.show();
             }
         });
     }
