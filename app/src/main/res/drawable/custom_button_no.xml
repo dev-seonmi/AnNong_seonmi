@@ -8,9 +8,9 @@
                 android:height="50dp"/>
             <stroke
                 android:width="3dp"
-                android:color="#9AA6D6"/>
+                android:color="@color/pink_deep"/>
             <solid
-                android:color="@color/spindle"/>
+                android:color="@color/pink_light"/>
             <corners
                 android:radius="10dp"/>
             <padding
@@ -28,9 +28,9 @@
                 android:height="50dp"/>
             <stroke
                 android:width="3dp"
-                android:color="#9AA6D6"/>
+                android:color="@color/pink_deep"/>
             <solid
-                android:color="#9AA6D6"/>
+                android:color="@color/pink_deep"/>
             <corners
                 android:radius="10dp"/>
             <padding
