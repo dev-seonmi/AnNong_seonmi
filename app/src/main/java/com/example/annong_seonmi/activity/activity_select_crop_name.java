@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -69,6 +71,7 @@ public class activity_select_crop_name extends AppCompatActivity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(activity_select_crop_name.this);
                 dialog.setContentView(R.layout.dialog_view);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
                 TextView dialog_title = (TextView) dialog.findViewById(R.id.dialog_title);
                 TextView dialog_msg = (TextView) dialog.findViewById(R.id.dialog_msg);
