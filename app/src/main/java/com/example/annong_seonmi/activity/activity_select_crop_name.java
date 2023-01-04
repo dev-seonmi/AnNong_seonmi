@@ -82,14 +82,12 @@ public class activity_select_crop_name extends AppCompatActivity {
                 dialog_title.setText("작물 추가");
                 dialog_msg.setText("추가하실 작물명을 입력하세요");
                 dialog_text.setText("");
-
                 dialog_btn_no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
                 });
-
                 dialog_btn_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

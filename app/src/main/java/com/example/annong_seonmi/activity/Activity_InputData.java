@@ -1,7 +1,10 @@
 package com.example.annong_seonmi.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -39,6 +44,20 @@ public class Activity_InputData extends AppCompatActivity {
 
         Intent intent = getIntent();
         crop_name = intent.getStringExtra("crop_name");
+
+        /* 시작 다이얼로그 하나 */
+        Dialog dialog = new Dialog(Activity_InputData.this);
+        dialog.setContentView(R.layout.dialog_start);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button start_button = (Button) dialog.findViewById(R.id.start_button);
+        start_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
 
         textView_crop_name = (TextView) findViewById(R.id.textView_crop_name);
         textView_crop_name.setText(crop_name);

@@ -90,14 +90,12 @@ public class Activity_TableSetting extends AppCompatActivity {
                 dialog_title.setText("저장");
                 dialog_msg.setText("메세지 입력 알아서 하기");
                 dialog_text.setVisibility(View.GONE);
-
                 dialog_btn_no.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
                 });
-
                 dialog_btn_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
