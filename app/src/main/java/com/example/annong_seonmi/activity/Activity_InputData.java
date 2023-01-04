@@ -57,6 +57,7 @@ public class Activity_InputData extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+        dialog.setCancelable(false);
         dialog.show();
 
         textView_crop_name = (TextView) findViewById(R.id.textView_crop_name);
