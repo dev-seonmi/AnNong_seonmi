@@ -1,6 +1,8 @@
 package com.example.annong_seonmi.activity;
 
+import static com.example.annong_seonmi.utils.CsvUtils.clearCSV;
 import static com.example.annong_seonmi.utils.CsvUtils.getFullDataFromDir;
+import static com.example.annong_seonmi.utils.CsvUtils.removeLine;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -24,7 +26,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.annong_seonmi.R;
+import com.example.annong_seonmi.domain.CropRowMeta;
 import com.example.annong_seonmi.domain.CropTable;
+import com.example.annong_seonmi.utils.CsvUtils;
+import com.example.annong_seonmi.utils.enums.BasicCropColumn;
 
 import org.w3c.dom.Text;
 import org.xmlpull.v1.XmlPullParser;
@@ -115,14 +120,10 @@ public class Activity_OutputData extends AppCompatActivity {
                 dialog_btn_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        /*
-                            우
-                            석
-                            아
-                            cropList에서 작물 삭제
-                            작물이름.json 삭제
-                            작물이름.csv 삭제
-                         */
+                        clearCSV(getApplicationContext(), crop_name);
+                        makeTableHeader(data.get(0));
+                        Log.e("TAG", data.get(0).toString());
+                        dialog.dismiss();
                         finish();
                     }
                 });
@@ -167,7 +168,7 @@ public class Activity_OutputData extends AppCompatActivity {
                         call_data(index);
 
                         /* 파일 쓰기 */
-                        CropTable tmpTable = new CropTable(getApplicationContext());
+                        removeLine(getApplicationContext(), crop_name, index);
 
                         dialog.dismiss();
                     }
@@ -248,6 +249,19 @@ public class Activity_OutputData extends AppCompatActivity {
         }
 
         output_data_frame.addView(scrollView);
+    }
+
+    private void makeTableHeader(List<String> column){
+        appendTableHeader(BasicCropColumn.MEASUREMENT_DATE.toString());
+
+        for(String rowMeta: column){
+            appendTableHeader(rowMeta);
+        }
+        CsvUtils.writeNewLine(this,crop_name);
+    }
+
+    private void appendTableHeader(String data) {
+        CsvUtils.writeCsvData(this, crop_name, data);
     }
 
 }
