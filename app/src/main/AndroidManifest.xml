@@ -36,6 +36,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <activity android:name=".activity.activity_select_crop_name"/>
+        <activity android:name=".activity.activity_download_csv"/>
     </application>
 
 </manifest>

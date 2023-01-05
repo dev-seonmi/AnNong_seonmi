@@ -21,7 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.annong_seonmi.R;
 import com.example.annong_seonmi.domain.CropMeta;
 import com.example.annong_seonmi.domain.CropRowMeta;
+import com.example.annong_seonmi.utils.CsvUtils;
 import com.example.annong_seonmi.utils.JsonUtils;
+import com.example.annong_seonmi.utils.enums.BasicCropColumn;
 import com.example.annong_seonmi.utils.enums.Extras;
 
 import java.util.ArrayList;
@@ -51,8 +53,6 @@ public class Activity_TableSetting extends AppCompatActivity {
         setting_table_layout = (TableLayout) findViewById(R.id.setting_table_layout);
 
         initCropMetaData(intent.getExtras().getString(Extras.CROP_NAME_KEY.getKey()));
-        Log.e("TAG", "이야!!!");
-
 
 
         /* 테이블 로우 추가 */
@@ -100,6 +100,7 @@ public class Activity_TableSetting extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         saveTable();
+                        makeTableHeader();
                         finish();
                     }
                 });
@@ -136,6 +137,18 @@ public class Activity_TableSetting extends AppCompatActivity {
         return JsonUtils.getInstanceFromJson(this, cropName, CropMeta.class);
     }
 
+    private void makeTableHeader(){
+        appendTableHeader(BasicCropColumn.MEASUREMENT_DATE.toString());
+
+        for(CropRowMeta rowMeta: this.cropMetaData.getRows()){
+            appendTableHeader(rowMeta.getColumnName());
+        }
+        CsvUtils.writeNewLine(this, this.cropMetaData.getCropName());
+    }
+
+    private void appendTableHeader(String data) {
+        CsvUtils.writeCsvData(this, this.cropMetaData.getCropName(), data);
+    }
 
     /* 테이블 행 추가 */
     void add_tableRow() {

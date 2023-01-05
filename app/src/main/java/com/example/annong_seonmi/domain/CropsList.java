@@ -9,6 +9,7 @@ import com.example.annong_seonmi.utils.enums.ApplicationConstants;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CropsList {
     private static CropsList instance = new CropsList();
     private static final int NEW_CROP_SELECT_INDEX = 0;

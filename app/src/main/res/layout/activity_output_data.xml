@@ -59,11 +59,13 @@
             android:orientation="horizontal"
             android:layout_margin="10dp">
             <Button
+                android:id="@+id/btn_prev"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:text="a"/>
 
             <TextView
+                android:id="@+id/textView_min"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -78,14 +80,16 @@
                 android:text="/"
                 android:textSize="30dp"/>
             <TextView
+                android:id="@+id/textView_max"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center|left"
-                android:text="n"
+                android:text="9999"
                 android:textSize="30dp"/>
 
             <Button
+                android:id="@+id/btn_next"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:text="b"/>
@@ -149,6 +153,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btn_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="데이터 내보내기"

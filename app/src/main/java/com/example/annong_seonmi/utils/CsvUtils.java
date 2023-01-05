@@ -3,7 +3,6 @@ package com.example.annong_seonmi.utils;
 import android.content.Context;
 
 import com.example.annong_seonmi.utils.enums.AppResourceExtensions;
-import com.example.annong_seonmi.utils.enums.AppResourceName;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

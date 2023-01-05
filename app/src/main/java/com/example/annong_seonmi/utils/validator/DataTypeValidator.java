@@ -9,9 +9,15 @@ import com.example.annong_seonmi.utils.validator.exception.NotCorrectDataTypeExc
 
 import java.util.NoSuchElementException;
 
+
 public class DataTypeValidator {
+    /*
+    * 데이터를 HashMap 에 추가를 용이하게 하기 위해서 String 으로 반환,
+    * 추후 데이터 타입이 더 많아 질 경우 데이터 타입에 대한 상위 인터페이스를 작성하여 HashMap 에 넣도록 리팩터링 요망
+    * 2023.1.4(수) 기준 요구 데이터 타입 숫자, 문자열
+    * */
     @RequiresApi(api = VERSION_CODES.N)
-    public static double validateNumberTypeData(String data) throws NotCorrectDataTypeException {
+    public static String validateNumberTypeData(String data) throws NotCorrectDataTypeException {
         double value;
 
         try{
@@ -19,7 +25,7 @@ public class DataTypeValidator {
         }catch (NumberFormatException e){
             value = checkOneSpotNumber(data);
         }
-        return value;
+        return Double.toString(value);
     }
 
     @RequiresApi(api = VERSION_CODES.N)

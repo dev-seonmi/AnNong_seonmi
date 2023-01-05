@@ -3,6 +3,7 @@ package com.example.annong_seonmi.activity;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Activity_AppSetting extends AppCompatActivity {
 
@@ -73,6 +76,36 @@ public class Activity_AppSetting extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+        /* 만든이 링크 */
+        Linkify.TransformFilter transformFilter = new Linkify.TransformFilter() {
+            @Override
+            public String transformUrl(Matcher matcher, String s) {
+                return "";
+            }
+        };
+
+        TextView textView1 = (TextView) findViewById(R.id.textView1);
+        Pattern pattern1 = Pattern.compile(textView1.getText().toString());
+        Linkify.addLinks(textView1, pattern1, "https://github.com/song-wooseok/", null, transformFilter);
+        TextView textView2 = (TextView) findViewById(R.id.textView2);
+        Pattern pattern2 = Pattern.compile(textView2.getText().toString());
+        Linkify.addLinks(textView2, pattern2, "https://github.com/dev-seonmi/", null, transformFilter);
+        TextView textView3 = (TextView) findViewById(R.id.textView3);
+        Pattern pattern3 = Pattern.compile(textView3.getText().toString());
+        Linkify.addLinks(textView3, pattern3, "https://github.tistory.com/", null, transformFilter);
+        TextView textView4 = (TextView) findViewById(R.id.textView4);
+        Pattern pattern4 = Pattern.compile(textView4.getText().toString());
+        Linkify.addLinks(textView4, pattern4, "https://sogogi1000inbun.tistory.com/", null, transformFilter);
+        TextView textView5 = (TextView) findViewById(R.id.textView5);
+        Pattern pattern5 = Pattern.compile(textView5.getText().toString());
+        Linkify.addLinks(textView5, pattern5, "https://tpdbs1004.tistory.com/", null, transformFilter);
+        TextView textView6 = (TextView) findViewById(R.id.textView6);
+        Pattern pattern6 = Pattern.compile(textView6.getText().toString());
+        Linkify.addLinks(textView6, pattern6, "https://ksm2853305.tistory.com/", null, transformFilter);
+
 
     }
 

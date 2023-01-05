@@ -144,6 +144,5 @@ public class activity_select_crop_name extends AppCompatActivity {
         intent.putExtra(Extras.CROP_NAME_KEY.getKey(), crop_name);
         startActivity(intent);
         finish();
-
     }
 }

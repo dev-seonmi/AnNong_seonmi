@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.annong_seonmi.utils.enums.CustomDataType;
 
+
 public class CropRowMeta {
     private String columnName;
     private String dataType;
@@ -24,6 +25,10 @@ public class CropRowMeta {
     @RequiresApi(api = VERSION_CODES.N)
     public int getDataTypeIndex(){
         return CustomDataType.getCustomDataTypeIndex(this.dataType);
+    }
+
+    public String getDataType(){
+        return this.dataType;
     }
 
     public boolean isRequired(){

@@ -1,6 +1,7 @@
 package com.example.annong_seonmi.utils.enums;
 
 import android.os.Build.VERSION_CODES;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -12,18 +13,19 @@ import java.util.Arrays;
 
 @FunctionalInterface
 interface validateFunction<T>{
-    void apply(T t) throws NotCorrectDataTypeException;
+    T apply(T t) throws NotCorrectDataTypeException;
 }
 
 @RequiresApi(api = VERSION_CODES.N)
 public enum CustomDataType {
     NUMBER(0, "숫자", (data)->{
-        DataTypeValidator.validateNumberTypeData(data);
+        Log.e("Validator", DataTypeValidator.validateNumberTypeData(data));
+        return DataTypeValidator.validateNumberTypeData(data);
     }),
     /*
     * 추후 텍스트 타입의 데이터에 대해서 검증 조건이 추가될 경우 람다식으로 메서드 작성
     * */
-    STRING(1, "텍스트", (data)->{});
+    STRING(1, "텍스트", (data)-> data);
 
     private final int index;
     private final String dataType;
@@ -49,8 +51,14 @@ public enum CustomDataType {
                 .findAny().get().getIndex();
     }
 
+    public static CustomDataType getCustomDataType(String dataType){
+        return Arrays.stream(CustomDataType.values())
+                .filter(customDataType -> customDataType.getDataType().equals(dataType))
+                .findFirst().get();
+    }
+
     @RequiresApi(api = VERSION_CODES.N)
-    public void validate(String data) throws NotCorrectDataTypeException{
-        validateExpression.apply(data);
+    public String validate(String data) throws NotCorrectDataTypeException{
+        return validateExpression.apply(data);
     }
 }
